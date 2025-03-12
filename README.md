@@ -5,14 +5,14 @@ This API is designed to automatically process uploaded images, generate thumbnai
 
 Unfortunately, I am really bad at this and my computer storage space was inevitably too small for the AI to process. 
 
-Installation steps
+## Installation steps
 
 
-API documentation
+## API documentation
 
 
 
-Example usage
+## Example usage
 
 
-Processing pipeline explanation
+## Processing pipeline explanation
