@@ -3,30 +3,32 @@
 ## Project Overview
 This API is an image processing pipeline designed to automatically process uploaded images, generate thumbnails, extract metadata, and provide AI-generated captions using the Salesforce BLIP Image Captioning Model. The API is built using Python Flask and SQLAlchemy, with images stored in an SQLite database. 
 
+Unfortunately, since I could not run Salesforce BLIP Image Captioning Model (Large) on my computer, the Salesforce BLIP Image Captioning Model (Base) is used for this API instead.
+
 ## Installation steps
 
 
 ## API documentation
 1. Upload an Image
 
-Endpoint: POST /
-Request: Multipart form-data with an image file (file parameter - only supports JPG and PNG images)
-Response: Redirects to home page
+- Endpoint: POST /
+- Request: Multipart form-data with an image file (file parameter - only supports JPG and PNG images)
+- Response: Redirects to home page
 
 2. Retrieve Metadata
 
-Endpoint: GET /api/images/<image_id>
-Response: JSON object containing image format, size, mode, and other metadata
+- Endpoint: GET /api/images/<image_id>
+- Response: JSON object containing image format, size, mode, and other metadata
 
 3. Generate and Retrieve Thumbnails
 
-Endpoint: GET /api/images/<image_id>/thumbnails/<size>
-Response: JSON object with paths to generated thumbnails (small / medium)
+- Endpoint: GET /api/images/<image_id>/thumbnails/<size>
+- Response: JSON object with paths to generated thumbnails (small / medium)
 
 4. Get Processing Statistics
 
-Endpoint: GET /api/stats
-Response: JSON object containing success and failure rates, and average processing times
+- Endpoint: GET /api/stats
+- Response: JSON object containing success and failure rates, and average processing times
 
 ## Example usage
 
