@@ -11,9 +11,9 @@ Unfortunately, since I could not run Salesforce BLIP Image Captioning Model (Lar
 ## API documentation
 1. Upload an Image
 
-- Endpoint: POST /
+- Endpoint: POST /api/images
 - Request: Multipart form-data with an image file (file parameter - only supports JPG and PNG images)
-- Response: Redirects to home page
+- Response: JSON object containing image ID and processing status
 
 2. Retrieve Metadata
 
