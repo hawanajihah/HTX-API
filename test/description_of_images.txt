@@ -1,4 +1,7 @@
-screenshot(30).jpg: corrupted image file
-screenshot.png: safe image file 
-new_image.jpg: safe image file
-photo.png: safe image file
+<u>DESCRIPTION OF EACH IMAGE<u>
+- screenshot(30).jpg: corrupted image file
+- screenshot.png: safe image file 
+- new_image.jpg: safe image file
+- photo.png: safe image file BUT forced a processing failure (see README.md)
+
+NOTE: you may use your own images; these were the ones I used to test the API.
