@@ -1,0 +1,4 @@
+screenshot(30).jpg: corrupted image file
+screenshot.png: safe image file 
+new_image.jpg: safe image file
+photo.png: safe image file
