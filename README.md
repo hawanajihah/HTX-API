@@ -10,7 +10,16 @@ Unfortunately, since I could not run Salesforce BLIP Image Captioning Model (Lar
 Ensure that you have Python 3.8+ installed, along with ```pip```
 
 ### Steps
-
+1. Clone the repository
+2. Install dependencies
+```
+pip install -r requirements.txt
+```
+3. Run the API
+```
+python main.py
+```
+The API will be accessible at ```http://127.0.0.1:8000``` 
 
 ## API documentation
 1. Upload an Image
