@@ -41,6 +41,13 @@ The API will be accessible at ```http://127.0.0.1:8000```
 
 - Error handling:
     - Invalid image format: returns 400 and error message: "Only JPEG and PNG files are allowed."
+
+      ```
+        {
+          "error": "Invalid images. Only JPEG and PNG files are allowed."
+        }
+      ```
+
     - Processing failure: returns 400
  
 2. List all processing and processed images
