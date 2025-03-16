@@ -71,13 +71,37 @@ The API will be accessible at ```http://127.0.0.1:8000```
 
 - Endpoint: GET /api/images/<int:image_id>
 - Response: JSON object containing filename, image ID, caption, processing time, processing status, thumbnail links and other metadata
+
+```
+{
+    "data": {
+        "caption": "the triangle logo",
+        "filename": "screenshot.png",
+        "id": 2,
+        "metadata": {
+            "format": "PNG",
+            "height": 768,
+            "size_bytes": 4196352,
+            "width": 1366
+        },
+        "processed_at": "2025-03-14T10:51:16Z"
+    },
+    "error": null,
+    "status": "processed",
+    "thumbnails": {
+        "medium": "http://localhost:8000/api/images/2/thumbnails/medium",
+        "small": "http://localhost:8000/api/images/2/thumbnails/small"
+    }
+}
+```
+
 - Error handling
     - UnidentifiedImageError: returns 400 and error message: "Processing Failure"
 
 4. Generate and Retrieve Thumbnails
 
 - Endpoint: GET /api/images/<int:image_id>/thumbnails/<string:size>
-- Response: JSON object with links to generated thumbnails (small / medium)
+- Response: Image of thumbnails (small / medium)
 - Error handling
     - UnidentifiedImageError: returns 400 and error message: "Processing Failure"
 
@@ -85,6 +109,21 @@ The API will be accessible at ```http://127.0.0.1:8000```
 
 - Endpoint: GET /api/stats
 - Response: JSON object containing number of images in the database, success and failure rates, and average processing 
+
+```
+{
+    "average_processing_time": "0.86s (to 2 dp)",
+    "images": {
+        "failed_images": 2,
+        "processed_images": 11,
+        "total_images": 13
+    },
+    "success_failures_rate": {
+        "failure_rate": "15.38%",
+        "success_rate": "84.62%"
+    }
+}
+```
 
 ## Processing pipeline explanation
 1. Image Upload: The image is uploaded and stored in the database.
