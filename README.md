@@ -1,7 +1,7 @@
 # HTX-API
 
 ## Project Overview
-This API is an image processing pipeline designed to automatically process uploaded images, generate thumbnails, extract metadata, and provide AI-generated captions using the Salesforce BLIP Image Captioning Model. It also tracks processing time and maintains a database record for each uploaded image. This image processing pipeline is built using Python Flask and SQLAlchemy, with images stored in an SQLite database. 
+This API is an image processing pipeline designed to automatically process uploaded images, generate thumbnails, extract metadata, and provide AI-generated captions using the Salesforce BLIP Image Captioning Model. It also tracks processing time and maintains a database record for each uploaded image. This image processing pipeline is built using Python Flask and SQLAlchemy, with images being stored in an SQLite database. 
 
 Unfortunately, since I could not run Salesforce BLIP Image Captioning Model (Large) on my computer, the Salesforce BLIP Image Captioning Model (Base) is used for this API pipeline instead. 
 
@@ -34,12 +34,20 @@ The API will be accessible at ```http://127.0.0.1:8000```
 
 ```
 {
-    "image_id": 13,
+    "image_id": 1,
     "status": "processed"
 }
 ```
 
 - Error handling:
+    - No file uploaded: returns 400 and error message: "No file uploaded."
+
+      ```
+      {
+         "error": "No file uploaded."
+      }
+      ```
+
     - Invalid image format (eg. GIF, PDF): returns 400 and error message: "Only JPEG and PNG files are allowed."
 
       ```
@@ -48,7 +56,8 @@ The API will be accessible at ```http://127.0.0.1:8000```
         }
       ```
 
-    - Processing failure: returns 500 with error message
+    - Processing failure: returns 500 with error message: "An unexpected error occurred while processing the image."
+          - NOTE: could be tested by removing file.seek(0) and image = Image.open(file) from lines 92-93 in the main.py file.
 
       ```
       {
@@ -109,11 +118,19 @@ The API will be accessible at ```http://127.0.0.1:8000```
 ```
 
 - Error handling
-    - UnidentifiedImageError: returns 400 and error message: "Processing Failure"
+    - Invalid image ID: returns 404 and error message: "Image not found"
 
       ```
       {
-          "error": "Processing Failure"
+          "error": "Image not found"
+      }
+      ```
+
+    - UnidentifiedImageError: returns 400 and error message: "Processing failure"
+
+      ```
+      {
+          "error": "Processing failure"
       }
       ```
 
@@ -122,13 +139,30 @@ The API will be accessible at ```http://127.0.0.1:8000```
 - Endpoint: GET /api/images/<int:image_id>/thumbnails/<string:size>
 - Response: Image of thumbnails (small / medium)
 - Error handling
-    - UnidentifiedImageError: returns 400 and error message: "Processing Failure"
+    - Invalid image ID: returns 404 and error message: "Image not found"
 
       ```
       {
-          "error": "Processing Failure"
+          "error": "Image not found"
       }
       ```
+
+    - UnidentifiedImageError: returns 400 and error message: "Processing failure"
+
+      ```
+      {
+          "error": "Processing failure"
+      }
+      ```
+      
+    - Invalid size: returns 400 and error message: "Invalid thumbnail size. Choose 'small' or 'medium'."
+      
+      ```
+      {
+          "error": "Invalid thumbnail size. Choose 'small' or 'medium'."
+      }
+      ```
+      
 
 5. Get Processing Statistics
 
