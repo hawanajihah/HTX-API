@@ -57,13 +57,14 @@ The API will be accessible at ```http://127.0.0.1:8000```
       ```
 
     - Processing failure: returns 500 with error message: "An unexpected error occurred while processing the image."
-          - NOTE: could be tested by removing file.seek(0) and image = Image.open(file) from lines 92-93 in the main.py file.
 
       ```
       {
           "error": "An unexpected error occurred while processing the image."
       }
       ```
+
+      NOTE: could be tested by removing file.seek(0) and image = Image.open(file) from lines 92-93 in the main.py file.
  
 2. List all processing and processed images
 - Endpoint: GET /api/images
