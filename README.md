@@ -40,7 +40,7 @@ The API will be accessible at ```http://127.0.0.1:8000```
 ```
 
 - Error handling:
-    - Invalid image format: returns 400 and error message: "Only JPEG and PNG files are allowed."
+    - Invalid image format (eg. GIF, PDF): returns 400 and error message: "Only JPEG and PNG files are allowed."
 
       ```
         {
@@ -48,7 +48,13 @@ The API will be accessible at ```http://127.0.0.1:8000```
         }
       ```
 
-    - Processing failure: returns 400
+    - Processing failure: returns 500 with error message
+
+      ```
+      {
+          "error": "An unexpected error occurred while processing the image."
+      }
+      ```
  
 2. List all processing and processed images
 - Endpoint: GET /api/images
@@ -145,8 +151,11 @@ The API will be accessible at ```http://127.0.0.1:8000```
 ```
 
 ## Processing pipeline explanation
-1. Image Upload: The image is uploaded and stored in the database.
-2. Metadata Extraction: The image format, dimensions, and other details are extracted.
+1. Image Upload: The image is uploaded, validated and stored in the database. Only JPEG, JPG and PNG images are supported. The image is loaded into memory for processing.
+2. Metadata Extraction: After the uploaded image is converted to PNG format for consistency, the image format, dimensions, and other details are extracted.
 3. Thumbnail Generation: Small (150x150) and medium (300x300) thumbnails are generated and stored.
 4. AI Captioning: The BLIP model generates a caption based on the image content.
-5. API Access: Users can retrieve metadata, thumbnails, and captions via API endpoints.
+5. API Access: Users can retrieve metadata, thumbnails, and captions via API endpoints. Processing statistics such as success and failure rates can be retrieved via the API endpoints.
+6. The original image (converted to PNG) and its metadata are stored in an SQLite database. The processing status, processing time, and timestamp are recorded.
+
+- The system uses SYNCHRONOUS processing instead of the Automated Image Processing. 
