@@ -1,0 +1,11 @@
+# modules to import
+
+flask
+flask_sqlalchemy 
+PIL
+io
+logging
+time
+datetime 
+transformers
+torch
