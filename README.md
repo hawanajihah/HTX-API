@@ -11,6 +11,10 @@ Ensure that you have Python 3.8+ installed, along with ```pip```
 
 ### Steps
 1. Clone the repository
+```
+git clone https://github.com/hawanajihah/HTX-API.git
+cd HTX-API
+```
 2. Install dependencies
 ```
 pip install -r requirements.txt
@@ -42,6 +46,26 @@ The API will be accessible at ```http://127.0.0.1:8000```
 2. List all processing and processed images
 - Endpoint: GET /api/images
 - Response: JSON object listing all images' details including filename, image ID and processing status
+
+```
+[
+    {
+        "filename": "photo.png",
+        "id": 1,
+        "status": "processed"
+    },
+    {
+        "filename": "screenshot.png",
+        "id": 2,
+        "status": "processed"
+    },
+    {
+        "filename": "new_image.jpg",
+        "id": 3,
+        "status": "processed"
+    }
+]
+```
 
 3. Retrieve Image Details
 
