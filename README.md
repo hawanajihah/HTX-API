@@ -105,12 +105,24 @@ The API will be accessible at ```http://127.0.0.1:8000```
 - Error handling
     - UnidentifiedImageError: returns 400 and error message: "Processing Failure"
 
+      ```
+      {
+          "error": "Processing Failure"
+      }
+      ```
+
 4. Generate and Retrieve Thumbnails
 
 - Endpoint: GET /api/images/<int:image_id>/thumbnails/<string:size>
 - Response: Image of thumbnails (small / medium)
 - Error handling
     - UnidentifiedImageError: returns 400 and error message: "Processing Failure"
+
+      ```
+      {
+          "error": "Processing Failure"
+      }
+      ```
 
 5. Get Processing Statistics
 
