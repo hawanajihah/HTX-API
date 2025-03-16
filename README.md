@@ -24,6 +24,26 @@ Unfortunately, since I could not run Salesforce BLIP Image Captioning Model (Lar
 - Endpoint: GET /api/images/<image_id>
 - Response: JSON object containing filename, image ID, caption, processing time, processing status, thumbnail links and other metadata
 
+- Example response:
+  {
+  "id": 1,
+  "filename": "example.png",
+  "status": "processed",
+  "metadata": {
+    "width": 1024,
+    "height": 768,
+    "format": "PNG",
+    "size_bytes": 345678
+  },
+  "thumbnails": {
+    "small": "http://localhost:8000/api/images/1/thumbnails/small",
+    "medium": "http://localhost:8000/api/images/1/thumbnails/medium"
+  },
+  "processed_at": "2024-03-16T12:00:00Z",
+  "caption": "A scenic view of a mountain landscape."
+}
+
+
 4. Generate and Retrieve Thumbnails
 
 - Endpoint: GET /api/images/<image_id>/thumbnails/<size>
