@@ -6,6 +6,10 @@ This API is an image processing pipeline designed to automatically process uploa
 Unfortunately, since I could not run Salesforce BLIP Image Captioning Model (Large) on my computer, the Salesforce BLIP Image Captioning Model (Base) is used for this API pipeline instead. 
 
 ## Installation steps
+### Prerequisites
+Ensure that you have Python 3.8+ installed, along with ```pip```
+
+### Steps
 
 
 ## API documentation
@@ -14,13 +18,18 @@ Unfortunately, since I could not run Salesforce BLIP Image Captioning Model (Lar
 - Endpoint: POST /api/images
 - Request: Multipart form-data with file field (only supports JPG and PNG images)
 - Response: JSON object containing image ID and processing status
+
+```
+{
+    "image_id": 13,
+    "status": "processed"
+}
+```
+
 - Error handling:
     - Invalid image format: returns 400 and error message: "Only JPEG and PNG files are allowed."
     - Processing failure: returns 400
- ```
-print('hello world')
-```
-
+ 
 2. List all processing and processed images
 - Endpoint: GET /api/images
 - Response: JSON object listing all images' details including filename, image ID and processing status
