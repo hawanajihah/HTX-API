@@ -48,7 +48,7 @@ The API will be accessible at ```http://127.0.0.1:8000```
       }
       ```
 
-    - Invalid image format (eg. GIF, PDF): returns 400 and error message: "Only JPEG and PNG files are allowed."
+    - Invalid image format (eg. GIF, PDF): returns 400 and error message: "Invalid images. Only JPEG and PNG files are allowed."
 
       ```
         {
