@@ -193,4 +193,4 @@ The API will be accessible at ```http://127.0.0.1:8000```
 5. API Access: Users can retrieve metadata, thumbnails, and captions via API endpoints. Processing statistics such as success and failure rates can be retrieved via the API endpoints.
 6. The original image (converted to PNG) and its metadata are stored in an SQLite database. The processing status, processing time, and timestamp are recorded.
 
-- The system uses SYNCHRONOUS processing instead of the Automated Image Processing. 
+- The system uses SYNCHRONOUS processing instead of the Automated Processing for Images. 
