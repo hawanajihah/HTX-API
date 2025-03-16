@@ -1,4 +1,4 @@
-<ins>DESCRIPTION OF EACH IMAGE</ins>
+**DESCRIPTION OF EACH IMAGE**
 - screenshot(30).jpg: corrupted image file
 - screenshot.png: safe image file 
 - new_image.jpg: safe image file
