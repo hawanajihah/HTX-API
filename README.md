@@ -17,6 +17,10 @@ Unfortunately, since I could not run Salesforce BLIP Image Captioning Model (Lar
 - Error handling:
     - Invalid image format: returns 400 and error message: "Only JPEG and PNG files are allowed."
     - Processing failure: returns 400
+ 
+''' 
+print('hello world')
+'''
 
 2. List all processing and processed images
 - Endpoint: GET /api/images
