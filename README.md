@@ -64,7 +64,7 @@ The API will be accessible at ```http://127.0.0.1:8000```
       }
       ```
 
-      NOTE: could be tested by removing file.seek(0) and image = Image.open(file) from lines 92-93 in the main.py file.
+      NOTE: by removing file.seek(0) and image = Image.open(file) from lines 92-93 in the main.py file, it would simulate a processing failure when uploading an image.
  
 2. List all processing and processed images
 - Endpoint: GET /api/images
